@@ -1,14 +1,12 @@
 const express=require('express');
 const faker=require('faker');
-const CORS=require('cors');
+const cors = require('cors');
 const app=express();
 const bodyParser=require('body-parser');
 //enviromental variable or enviromental constants
 
 
-app.use(bodyParser.urlencoded({
-    extended: true
-  }));
+
 
 var users=[];
 
@@ -25,7 +23,7 @@ console.log(users[i]);
 
 
 app.get('/users',function(req,res){
-    res.setHeader('Access-Control-Allow-Origin', 'http://localhost:4000');
+    res.header("Access-Control-Allow-Origin", "*");
     res.send(users);
 })
 
