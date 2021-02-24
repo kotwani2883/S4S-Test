@@ -1,16 +1,19 @@
 import { Admin,Resource,ListGuesser } from 'react-admin';
 import React from 'react';
 import './App.css';
-import Dashboard from './Dashboard'
+import UserIcon from '@material-ui/icons/People';
+import Dashboard from './dashboard'
 //import jsonServerProvider from 'ra-data-json-server';
-import DataProvider from './dataProvider'
+import dataProvider from './dataProvider'
+//import simpleRestProvider from 'ra-data-simple-rest';
 
 
 const App=()=>{
   return (
    <>
-    <Admin  dataProvider={DataProvider}>
-     <Resource name="users"list={ListGuesser} />
+    <Admin dashboard={Dashboard} dataProvider={dataProvider}>
+   
+     <Resource name="users" list={ListGuesser} icon={UserIcon}/>
       </Admin>
       </>
      

@@ -2,10 +2,13 @@ const express=require('express');
 const faker=require('faker');
 const cors = require('cors');
 const app=express();
-const bodyParser=require('body-parser');
+const env=require('dotenv');
+
+
 //enviromental variable or enviromental constants
+env.config();
 
-
+app.use(cors());
 
 
 var users=[];
@@ -23,13 +26,12 @@ console.log(users[i]);
 
 
 app.get('/users',function(req,res){
-    res.header("Access-Control-Allow-Origin", "*");
     res.send(users);
 })
 
 
 
 
-app.listen(4000,()=>{
-    console.log(`Server is up and running on PORT 4000.`)
+app.listen(process.env.PORT,()=>{
+    console.log(`Server is up and running on PORT ${process.env.PORT}.`)
 })
